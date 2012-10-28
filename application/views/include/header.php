@@ -17,6 +17,6 @@
 </head>
 <body>
 
-   <div id="navigation">
-      <img src="<?= base_url('assets/img/logo.png') ?>" alt="logo" />
-   </div>
+<div id="navigation">
+   <img src="<?= base_url('assets/img/logo.png') ?>" alt="logo" />
+</div>

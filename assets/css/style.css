@@ -9538,3 +9538,24 @@ ul.icons li .icon-large:before {
 /**
  * Imports your own custom CSS.
  */
+
+#navigation {
+  display: inline-block;
+  vertical-align: middle;
+  position: fixed;
+  left: 0;
+}
+
+.content {
+  display: inline-block;
+  vertical-align: middle;
+  height: 460px;
+  margin-left: 306px;
+  width: 500000px;
+}
+
+.content img {
+  text-align: left;
+  margin: 0 15px;
+  display: inline-block;
+}

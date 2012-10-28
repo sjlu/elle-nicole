@@ -2,28 +2,48 @@
 
 class Content_model extends CI_Model
 {
+	private $cache = array();
 
 	function __construct()
 	{
 		parent::__construct();
-
 		$this->load->helper('directory');
+		$this->load->library('image_lib');
+
+		$image_map = directory_map('cache');
+		foreach ($image_map as $object)
+		{
+			if (!is_array($object))
+				$this->cache['images'][$object] = null;
+		}
+	}
+
+	private function __cached_image_exists($file)
+	{
+		return isset($this->cache['images'][basename($file)]);
 	}
 
 	private function _image($file)
 	{
-		$output = 'cache/' . md5($file).'.'.pathinfo($file, PATHINFO_EXTENSION);
+		$output = 'cache/'.md5($file).'.'.pathinfo($file, PATHINFO_EXTENSION);
+
+		if ($this->__cached_image_exists($output))
+			return $output;
 
 		$config = array(
-			'image_library' => 'imagick',
+			'image_library' => 'gd2',
 			'source_image' => $file,
 			'new_image' => $output,
 			'maintain_ratio' => true,
-			'height' => 460
+			'height' => 460,
+			'width' => 460
 		);
 
-		$this->load->library('image_lib', $config);
-		$this->image_lib->resize();
+		$this->image_lib->initialize($config);
+		if (!$this->image_lib->resize())
+			exit('GD2 does not seem to be configured correctly.');
+
+		$this->image_lib->clear();
 
 		return $output;
 	}
@@ -60,8 +80,8 @@ class Content_model extends CI_Model
 			if (is_array($object))
 				$output['directories'] = $this->_parse($object, $path.'/'.$key);
 			else if (preg_match('/jpg|jpeg|png|gif/i', $object))
-				// $output['images'][] = $path.'/'.$object;
-				$output['images'][] = $this->_image($path.'/'.$object);
+				if ($returned = $this->_image($path.'/'.$object))
+					$output['images'][] = $returned;
 			else if (preg_match('/txt/i', $object))
 				$output['properties'] = $this->_text($object); 
 		}

@@ -11,11 +11,6 @@
  */
 var Frontpage = function()
 {
-    /**
-     * The exports variable is responsible for
-     * storing and returning public functions
-     * in the instantized class.
-     */
     var exports = {};
 
     /**

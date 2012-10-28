@@ -16,3 +16,7 @@
 	<script src="<?= base_url('assets/js/app.js') ?>"></script>
 </head>
 <body>
+
+   <div id="navigation">
+      <img src="<?= base_url('assets/img/logo.png') ?>" alt="logo" />
+   </div>

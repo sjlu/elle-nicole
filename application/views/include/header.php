@@ -22,7 +22,7 @@
       <img src="<?= base_url('assets/img/logo.png') ?>" alt="logo" />
       <ul>
          <? foreach ($nav as $item): ?>
-            <li><a <? if (is_active('view/index/'.$item)): ?>class="active"<? endif; ?> href="<?= site_url('view/index/'.$item) ?>"><?= $item ?></a></li>
+            <li><a <? if (is_active($item)): ?>class="active"<? endif; ?> href="<?= site_url($item) ?>"><?= $item ?></a></li>
          <? endforeach; ?>
       </ul>
    </div>

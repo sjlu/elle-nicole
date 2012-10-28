@@ -26,7 +26,8 @@ module.exports = function(grunt) {
 		meta: {},
 		files: {
 			js: [
-				'assets/js/*.js',
+				'assets/js/frontpage.js',
+				'assets/js/base.js'
 			],
 			less: [
 				'assets/less/base.less'

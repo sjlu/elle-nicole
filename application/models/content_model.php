@@ -10,14 +10,11 @@ class Content_model extends CI_Model
 		$this->load->helper('directory');
 		$this->load->library('image_lib');
 
-		if (!is_writable('cache'))
-			mkdir('cache', 0777);
-
 		$image_map = directory_map('cache');
 		foreach ($image_map as $object)
 		{
 			if (!is_array($object))
-				$this->cache['images'][$object] = null;
+				$this->cache['images'][$object] = true;
 		}
 	}
 
@@ -39,7 +36,7 @@ class Content_model extends CI_Model
 			'new_image' => $output,
 			'maintain_ratio' => true,
 			'height' => 460,
-			'width' => 460
+			'width' => 9999999999 // simulate infinity
 		);
 
 		$this->image_lib->initialize($config);
@@ -81,7 +78,7 @@ class Content_model extends CI_Model
 		foreach ($map as $key => $object)
 		{
 			if (is_array($object))
-				$output['directories'] = $this->_parse($object, $path.'/'.$key);
+				$output['directories'][strtolower($key)] = $this->_parse($object, $path.'/'.$key);
 			else if (preg_match('/jpg|jpeg|png|gif/i', $object))
 				if ($returned = $this->_image($path.'/'.$object))
 					$output['images'][] = $returned;

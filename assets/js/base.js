@@ -6,6 +6,6 @@
  * to handle all your bindings here.
  */
 $(document).ready(function() {
-    var frontpage = new Frontpage();
-    frontpage.init();
+	var frontpage = new Frontpage();
+	frontpage.init();
 });

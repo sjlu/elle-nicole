@@ -1,57 +1,28 @@
-/**
- * Light Javascript "class" frameworking for you
- * to organize your code a little bit better.
- *
- * If you want more complex things, I'd suggest
- * importing something like Backbone.js as it
- * has much better abilities to handle a MVC
- * like framework including persistant stores (+1)
- *
- * @author  sjlu (Steven Lu)
- */
 var Frontpage = function()
 {
-    var exports = {};
+	var exports = {};
 
-    /**
-     * Write your public functions like this.
-     * Make sure you include it into the exports
-     * variable.
-     */
-    function public_function() 
-    {
-        /**
-         * Note that we can still call
-         * private functions within the scope
-         * of the "class".
-         */
-        private_function();
-    }
-    exports.public_function = public_function;
+	function init()
+	{
+		var sum = 20;
 
-    /**
-     * Private functions are very similar, they
-     * just are not included in the exports 
-     * function.
-     */
-     function private_function()
-     {
+		$('#photos img').load(function() {
+			sum = sum + this.width + 30;
+			$('#photos').css('width', sum);
+		});
 
-     }
+		function center() 
+		{
+			var height = $(window).height();
+			$('#navigation').css('top', height/2 - 460/2 - 30);
+			$('#photos').css('margin-top', height/2 - 460/2 - 30);
+			$('#footer').css('top', height/2+460/2 - 20);
+		}
 
-     /**
-      * You may wanna have a init() function
-      * to do all your bindings for the class.
-      */
-     function init()
-     {
+		$(window).resize(center);
+		center();
+	}
+	exports.init = init;
 
-     }
-     exports.init = init;
-
-     /**
-      * Last but not least, we have to return
-      * the exports object.
-      */
-     return exports;
-};
+	return exports;
+}; 

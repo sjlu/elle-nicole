@@ -7,13 +7,17 @@ class View extends Main_Controller {
 		$content = $this->content_model->get();
 		$content = $content['directories'];
 
+		$nav = array();
+		foreach ($content as $page => &$folder)
+			$nav[] = $page;
+
 		if (!empty($specific))
 			if (!isset($content[$specific]))
 				show_404();
 			else
 				$content = $content[$specific];
 
-      $this->load->view('include/header');
+      $this->load->view('include/header', array('nav' => $nav));
       $this->load->view('view', array('content' => $content));
       $this->load->view('include/footer');
 	}

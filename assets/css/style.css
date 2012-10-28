@@ -9540,22 +9540,63 @@ ul.icons li .icon-large:before {
  */
 
 #navigation {
-  display: inline-block;
-  vertical-align: middle;
+  background-color: #fff;
   position: fixed;
   left: 0;
+  height: 462px;
+  width: 346px;
 }
 
-.content {
+#navigation ul {
+  font-size: 12px;
+  position: absolute;
+  list-style-type: none;
+  text-align: right;
+  top: 260px;
+  left: 142px;
+  width: 100px;
+}
+
+#navigation li {
+  margin-top: -6px;
+}
+
+#navigation a {
+  color: #000;
+}
+
+#navigation a.active {
+  font-weight: bold;
+}
+
+#photos {
   display: inline-block;
-  vertical-align: middle;
+  margin-left: 346px;
+  margin-right: 10px;
   height: 460px;
-  margin-left: 306px;
-  width: 500000px;
+  overflow: hidden;
 }
 
-.content img {
-  text-align: left;
-  margin: 0 15px;
+#photos img {
   display: inline-block;
+  padding: 0 15px;
+}
+
+#footer {
+  font-size: 11px;
+  position: fixed;
+  top: 530px;
+  right: 50px;
+}
+
+#footer div {
+  display: inline-block;
+}
+
+#footer #bookings {
+  margin-right: 50px;
+}
+
+#footer #bookings a {
+  margin-left: 6px;
 }

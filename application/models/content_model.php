@@ -10,6 +10,9 @@ class Content_model extends CI_Model
 		$this->load->helper('directory');
 		$this->load->library('image_lib');
 
+		if (!is_writable('cache'))
+			mkdir('cache', 0777);
+
 		$image_map = directory_map('cache');
 		foreach ($image_map as $object)
 		{

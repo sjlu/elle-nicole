@@ -14,7 +14,7 @@ var Frontpage = function()
 		function center() 
 		{
 			var height = $(window).height();
-			$('#navigation').css('top', height/2 - 460/2 - 30);
+			$('#navigation').css('top', height/2 - 460/2 - 29);
 			$('#photos').css('margin-top', height/2 - 460/2 - 30);
 			$('#footer').css('top', height/2+460/2 - 20);
 		}

@@ -3,9 +3,9 @@
 <head>
    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="">
-   <meta name="keywords" content="">
-   <meta name="author" content="">
+   <meta name="description" content="Liz Jamora, founder of Elle Nicole Studios, is an art director, graphic/web designer and photographer." />
+   <meta name="keywords" content="photography, art direction, design, ux-design" />
+   <meta name="author" content="Liz Jamora">
 
    <title>Elle Nicole Studios</title>
 

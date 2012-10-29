@@ -75,6 +75,8 @@ class Content_model extends CI_Model
 	private function _parse($map, $path)
 	{
 		$output = array();
+		asort($map);
+
 		foreach ($map as $key => $object)
 		{
 			if (is_array($object))
@@ -85,9 +87,6 @@ class Content_model extends CI_Model
 			else if (preg_match('/txt/i', $object))
 				$output['properties'] = $this->_text($object); 
 		}
-
-		if (isset($output['images']))
-			sort($output['images']);
 		
 		return $output;
 	}

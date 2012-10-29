@@ -86,6 +86,7 @@ class Content_model extends CI_Model
 				$output['properties'] = $this->_text($object); 
 		}
 
+		sort($output['images']);
 		return $output;
 	}
 

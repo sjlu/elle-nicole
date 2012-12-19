@@ -23,9 +23,14 @@ class Content_model extends CI_Model
 		return isset($this->cache['images'][basename($file)]);
 	}
 
-	private function _image($file)
+	private function _image($file, $hidpi = false)
 	{
-		$output = 'cache/'.md5($file).'.'.pathinfo($file, PATHINFO_EXTENSION);
+		$output = 'cache/'.md5($file);
+
+      if ($hidpi)
+         $output .= '@2x';
+
+      $output .= '.'.pathinfo($file, PATHINFO_EXTENSION);
 
 		if ($this->__cached_image_exists($output))
 			return $output;
@@ -35,7 +40,7 @@ class Content_model extends CI_Model
 			'source_image' => $file,
 			'new_image' => $output,
 			'maintain_ratio' => true,
-			'height' => 460,
+			'height' => ($hidpi) ? 920 : 460,
 			'width' => 9999999999 // simulate infinity
 		);
 
@@ -44,6 +49,9 @@ class Content_model extends CI_Model
 			exit('GD2 does not seem to be configured correctly.');
 
 		$this->image_lib->clear();
+
+      // make a hidpi version
+      $this->_image($file, true);
 
 		return $output;
 	}

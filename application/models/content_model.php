@@ -51,7 +51,8 @@ class Content_model extends CI_Model
 		$this->image_lib->clear();
 
       // make a hidpi version
-      $this->_image($file, true);
+      if (!$hidpi)
+         $this->_image($file, true);
 
 		return $output;
 	}

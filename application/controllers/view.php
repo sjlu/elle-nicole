@@ -17,7 +17,7 @@ class View extends Main_Controller {
 			else
 				$content = $content[$specific];
 
-      $this->load->view('include/header', array('nav' => $nav));
+      $this->load->view('include/header', array('nav' => $nav, 'active' => $specific));
       $this->load->view('view', array('content' => $content));
       $this->load->view('include/footer');
 	}

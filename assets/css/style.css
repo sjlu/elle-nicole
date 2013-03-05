@@ -9546,6 +9546,10 @@ ul.icons li .icon-large:before {
   width: 346px;
 }
 
+#navigation img {
+  height: 460px;
+}
+
 #navigation ul {
   font-size: 12px;
   position: absolute;

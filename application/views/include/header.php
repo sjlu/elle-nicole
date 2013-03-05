@@ -10,6 +10,7 @@
    <title>Elle Nicole Studios</title>
 
    <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
+   <link rel="icon" type="image/png" href="assets/img/favicon.png">
 
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
    <!-- <script src="<?= base_url('assets/import/retina.js') ?>"></script> -->
